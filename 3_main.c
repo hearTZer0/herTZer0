@@ -3,41 +3,49 @@
 //王天瑞
 
 #include<stdio.h>
- 
+
 int main()
 {
-    int a , b;
-    char op;
+    int n = 0;
+    int isPrime = 1;
     
-    printf("请输入（格式:a b op)");
-    scanf("%d %d %c", &a, &b, &op);
+    scanf("%d", &n);
     
-    if( op == '+')
+    if(n <= 0 || n >= 50)
     {
-        printf("%d\n", a + b);
+        printf("错误");
+        return 1;
     }
-    
-    else if( op == '-')
+
+    if(n == 2)
     {
-        printf("%d\n", a - b);
+        isPrime = 1;
     }
-    
-    else if(op == '*')
+    else if(n == 1)
     {
-        printf("%d\n", a * b);
+        isPrime = 0;
     }
-    
-    else if(op == '/')
+    else
     {
-        if(b != 0)
+        int i = 2;
+        while(i <= n/2)
         {
-            double result = (double) a / b;
-            printf("%.2f\n", result);
+            if(n % i == 0)
+            {
+                isPrime = 0;
+                break;
+            }
+            i++;
         }
-        else
-        {
-            printf("错误:除数不能为零");
-        }
+    }
+
+    if(isPrime)
+    {
+        printf("密钥安全，密码设置成功\n");
+    }
+    else
+    {
+        printf("密钥不安全，请重新输入\n");
     }
     
     return 0;
