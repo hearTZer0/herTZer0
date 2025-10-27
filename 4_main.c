@@ -2,24 +2,32 @@
 //1718790056@qq.com
 //王天瑞
 
-#include<stdio.h>
- 
-int main()
+#include <stdio.h>
+
+int main() 
 {
-    int a ,b ,c;
-
-    printf("请输入(格式:3 4 5):");
-    scanf("%d %d %d",&a ,&b ,&c);
-
-    if(a + b > c && a + c > b && b + c > a)
-    {
-        printf("可以组成三角形");
-    }
+    int num, hundreds, tens, units;
+    int first = 1;
+    num = 100;
     
-    else
+    while (num <= 999) 
     {
-        printf("不能组成三角形");
-    }
+        hundreds = num / 100;
+        tens = (num / 10) % 10;
+        units = num % 10;
+        
+        int sum = hundreds * hundreds * hundreds + tens * tens * tens + units * units * units;
 
+        if (sum == num) 
+        {
+            if (!first) 
+            {
+                printf(" ");
+            }
+            printf("%d", num);
+            first = 0;
+        }
+        num++;
+    }
     return 0;
 }
