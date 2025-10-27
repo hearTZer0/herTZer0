@@ -11,7 +11,7 @@ int main()
     
     scanf("%d", &n);
     
-    if(n <= 1 || n >= 50)
+    if(n <= 0 || n >= 50)
     {
         printf("错误");
         return 1;
@@ -20,6 +20,10 @@ int main()
     if(n == 2)
     {
         isPrime = 1;
+    }
+    else if(n == 1)
+    {
+        isPrime = 0;
     }
     else
     {
