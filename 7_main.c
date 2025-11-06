@@ -2,31 +2,36 @@
 //1718790056@qq.com
 //王天瑞
 
-#include <stdio.h>
+#include<stdio.h>
 
-int main() {
+void rearr(int arr[], int n)
+{
+    int temp;
+    for (int i = 0; i < n/2; i++)
+    {
+        temp = arr[i];
+        arr[i] = arr[n - 1 - i];
+        arr[n - 1 - i] = temp;
+    }
+}
+
+int main()
+{
     int arr[5];
-    int i;
-
-    printf("请输入4个学号: ");
-    for (i = 0; i < 4; i++) {
+    for (int i = 0;i < 5; i++)
+    {
         scanf("%d", &arr[i]);
     }
 
-    for (i = 4; i > 0; i--) {
-        arr[i] = arr[i - 1];
-    }
+    rearr(arr, 5);
 
-    arr[0] = 0;
-
-    printf("更新后的提交记录: ");
-    for (i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++)
+    {
         printf("%d", arr[i]);
-        if (i < 4) {
+        if (i < 4)
+        {
             printf(" ");
         }
     }
-    printf("\n");
-
     return 0;
 }
