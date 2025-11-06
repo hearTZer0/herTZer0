@@ -2,51 +2,38 @@
 //1718790056@qq.com
 //王天瑞
 
-#include<stdio.h>
+#include <stdio.h>
 
 int main()
 {
-    int n = 0;
-    int isPrime = 1;
-    
-    scanf("%d", &n);
-    
-    if(n <= 0 || n >= 50)
+    int arr[10];
+    int i, j, temp = 0;
+
+    for (i = 0;i < 10;i++)
     {
-        printf("错误");
-        return 1;
+        scanf("%d", &arr[i]);
     }
 
-    if(n == 2)
+    for (i = 0;i < 9;i++)
     {
-        isPrime = 1;
-    }
-    else if(n == 1)
-    {
-        isPrime = 0;
-    }
-    else
-    {
-        int i = 2;
-        while(i <= n/2)
+        for(j = 0;j < 9 - i;j++)
         {
-            if(n % i == 0)
+            if (arr[j] > arr[j + 1])
             {
-                isPrime = 0;
-                break;
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
             }
-            i++;
         }
     }
 
-    if(isPrime)
+    for (i = 0;i < 10;i++)
     {
-        printf("密钥安全，密码设置成功\n");
+        printf("%d", arr[i]);
+        if (i < 9)
+        {
+            printf(" ");
+        }
     }
-    else
-    {
-        printf("密钥不安全，请重新输入\n");
-    }
-    
     return 0;
 }
