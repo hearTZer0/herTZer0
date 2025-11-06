@@ -3,34 +3,38 @@
 //王天瑞
 
 #include<stdio.h>
- 
+
+int csum(int arr[], int n)
+{
+    int sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+int cproduct(int arr[], int n)
+{
+    int product = 1;
+    for (int i = 0; i < n; i++)
+    {
+        product *= arr[i];
+    }
+    return product;
+}
+
 int main()
 {
-   int arr[5] = {};
-   int i = 0;
-   int num;
- 
-   while (i < 5)
-   {
-     scanf("%d", &num);
-     if (num % 2 == 0)
-     {
-        arr[i] = num;
-        i++;
-     }
-     else
-     {
-        printf("为奇数，重新输入：");
-     }
+    int arr[5];
+    for (int i = 0; i < 5; i++)
+    {
+        scanf("%d", &arr[i]);
     }
 
-   for (int n = 0;n < 5; n++)
-   {
-     printf("%d", arr[n]);
-     if (n < 4)
-     {
-        printf(" ");
-     }
-   }
+    int sum = csum(arr, 5);
+    int product = cproduct(arr, 5);
+    
+    printf("%d %d", sum, product);
     return 0;
 }
