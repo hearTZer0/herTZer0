@@ -4,37 +4,34 @@
 
 #include<stdio.h>
 
-int csum(int arr[], int n)
+void rearr(int arr[], int n)
 {
-    int sum = 0;
-    for (int i = 0; i < n; i++)
+    int temp;
+    for (int i = 0; i < n/2; i++)
     {
-        sum += arr[i];
+        temp = arr[i];
+        arr[i] = arr[n - 1 - i];
+        arr[n - 1 - i] = temp;
     }
-    return sum;
-}
-
-int cproduct(int arr[], int n)
-{
-    int product = 1;
-    for (int i = 0; i < n; i++)
-    {
-        product *= arr[i];
-    }
-    return product;
 }
 
 int main()
 {
     int arr[5];
-    for (int i = 0; i < 5; i++)
+    for (int i = 0;i < 5; i++)
     {
         scanf("%d", &arr[i]);
     }
 
-    int sum = csum(arr, 5);
-    int product = cproduct(arr, 5);
-    
-    printf("%d %d", sum, product);
+    rearr(arr, 5);
+
+    for (int i = 0; i < 5; i++)
+    {
+        printf("%d", arr[i]);
+        if (i < 4)
+        {
+            printf(" ");
+        }
+    }
     return 0;
 }
