@@ -3,28 +3,17 @@
 //王天瑞
 
 #include<stdio.h>
- 
+
+int assum(int a1, int an, int step)
+{
+    int n = (an - a1)/step + 1;
+    int sum = (a1 + an) * n / 2;
+    return sum;
+}
+
 int main()
 {
-    int i = 0;
-    int arr[5] = {};
-    int first = 1;
-
-    for (i = 0; i <= 3; i++)
-    {
-        scanf("%d", &arr[i]);
-    }
-
-    arr[4] = arr[0] + arr[1] + arr[2] + arr[3];
-
-    for (i = 0; i < 5; i++)
-    {
-        if (! first)
-        {
-            printf(" ");
-        }
-        printf("%d", arr[i]);
-        first = 0;
-    }
+    int result = assum(1, 100, 1);
+    printf("%d", result);
     return 0;
 }
