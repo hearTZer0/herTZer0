@@ -4,30 +4,34 @@
 
 #include <stdio.h>
 
-int main() 
-{
-    int num, hundreds, tens, units;
-    int first = 1;
-    num = 100;
-    
-    while (num <= 999) 
-    {
-        hundreds = num / 100;
-        tens = (num / 10) % 10;
-        units = num % 10;
-        
-        int sum = hundreds * hundreds * hundreds + tens * tens * tens + units * units * units;
+int power(int a, int b) {
+    int result = 1;
 
-        if (sum == num) 
-        {
-            if (!first) 
-            {
-                printf(" ");
-            }
-            printf("%d", num);
-            first = 0;
-        }
-        num++;
+    if (b == 0) {
+        return 1;
     }
+
+    for (int i = 0; i < b; i++) {
+        result *= a;
+    }
+    
+    return result;
+}
+
+int calculate_square_sum(int n) {
+    int sum = 0;
+    
+    for (int i = 1; i <= n; i++) {
+        sum += power(i, 2);
+    }
+    
+    return sum;
+}
+
+int main() {
+
+    int result = calculate_square_sum(5);
+    printf("%d", result);
+    
     return 0;
 }
