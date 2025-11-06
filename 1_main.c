@@ -2,49 +2,32 @@
 //1718790056@qq.com
 //王天瑞
 
-#include<stdio.h>
+#include <stdio.h>
 
 int main()
 {
-    int n = 0;
-    int isPrime = 1;
-    
-    scanf("%d", &n);
-    
-    if(n <= 0 || n >= 50)
-    {
-        printf("错误");
-        return 1;
-    }
+    int matrix[3][3];
+    int i , j = 0;
 
-    if(n == 2)
+    for (i = 0;i < 3; i++)
     {
-        isPrime = 1;
-    }
-    else if(n == 1)
-    {
-        isPrime = 0;
-    }
-    else
-    {
-        for(int i = 2; i <= n/2; i++)
+        for (j = 0;j < 3; j++)
         {
-            if(n % i == 0)
-            {
-                isPrime = 0;
-                break;
-            }
+            scanf("%d", &matrix[i][j]);
         }
     }
 
-    if(isPrime)
+    for (i = 0;i < 3; i++)
     {
-        printf("密钥安全，密码设置成功\n");
+        for (j = 0;j < 3; j++)
+        {
+            printf("%d", matrix[i][j]);
+            if (j < 2)
+            {
+                printf(" ");
+            }
+        }
+        printf("\n");
     }
-    else
-    {
-        printf("密钥不安全，请重新输入\n");
-    }
-    
     return 0;
 }
