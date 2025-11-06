@@ -4,28 +4,30 @@
 
 #include <stdio.h>
 
-int main() 
+int main()
 {
-    int num, hundreds, tens, units;
-    int first = 1;
+    int matrix[3][3];
+    int i , j = 0;
 
-    for (num = 100; num <= 999; num++) 
+    for (i = 0;i < 3; i++)
     {
-        hundreds = num / 100;
-        tens = (num / 10) % 10;
-        units = num % 10;
-        
-        int sum = hundreds * hundreds * hundreds + tens * tens * tens + units * units * units;
-
-        if (sum == num) 
+        for (j = 0;j < 3; j++)
         {
-            if (!first) 
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    for (j = 0;j < 3; j++)
+    {
+        for (i = 0;i < 3; i++)
+        {
+            printf("%d", matrix[i][j]);
+            if (i < 2)
             {
                 printf(" ");
             }
-            printf("%d", num);
-            first = 0;
         }
+        printf("\n");
     }
     return 0;
 }
